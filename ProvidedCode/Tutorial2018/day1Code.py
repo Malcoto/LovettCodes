@@ -1,5 +1,5 @@
-# TODO Go through the file and try to implement the given suggestions to make the code work!
-# (Delete all TODOs when finished.)
+# TODO Read through the day 1 problem of 2018, then you can go through this file and try to implement the given
+# suggestions to make the code work! (Delete all TODOs when finished.)
 
 
 ## TODO Change file path to appropriate input file. (Replace the X)
@@ -41,7 +41,7 @@ def part_1():
         frequency += frequencyChange
 
     ## TODO: Return the resultant frequency.
-    return frequency
+    # return ...
 
 ## TODO: Implement part 2 solution
 def part_2():
@@ -59,19 +59,23 @@ def part_2():
     ## TODO: Add frequency to the set, since we already visited it.
     # visitedFrequencies.add(...)
 
-    ## TODO: Once code
+    ## TODO: Once code is working delete return None statement. (It's there to prevent an infinite loop for now.)
+    return None
 
     while True:
         ## TODO: For each frequency in the list integers, change frequency, and check if it has been
-        ## already encountered.
+        ## already encountered. Once the list is progressed entired through, the while loop will take us
+        ## back to the start.
         for frequencyChange in integers:
             frequency += frequencyChange
-            ## TODO: Return frequency if it has already been visited.
+            ## TODO: Return frequency if it has already been visited. (Remove continue once return is implemented)
             if frequency in visitedFrequencies:
-                return frequency
+                continue
+                #return ...
             else:
-                ## TODO: Add frequency to visitedFrequencies.
-                visitedFrequencies.add(frequency)
+                ## TODO: Add frequency to visitedFrequencies. (Ditto with the continue)
+                continue
+                ## ...
 
 
 
