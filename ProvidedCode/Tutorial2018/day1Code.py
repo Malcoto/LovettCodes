@@ -40,7 +40,8 @@ def part_1():
 
     ## TODO: For each frequency in the list integers, change frequency.
     for frequencyChange in integers:
-        frequency += frequencyChange
+        # frequency += ...
+        pass
 
     ## TODO: Return the resultant frequency.
     # return ...
@@ -69,7 +70,8 @@ def part_2():
         ## already encountered. Once the list is progressed entired through, the while loop will take us
         ## back to the start.
         for frequencyChange in integers:
-            frequency += frequencyChange
+            ## TODO:
+            #frequency += ...
             ## TODO: Return frequency if it has already been visited. (Remove continue once return is implemented)
             if frequency in visitedFrequencies:
                 continue

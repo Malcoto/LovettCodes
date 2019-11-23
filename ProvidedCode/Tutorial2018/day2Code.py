@@ -71,6 +71,7 @@ def part_1():
 ## TODO: Implement part 2 solution
 def part_2():
     ## TODO: We want to find the two ids which differ by only 1 letter. It is inefficient to check every pair, so
+    ## we will start by sorting
 
     # Get a list of the integers representing the frequency changes from the input file.
     integers = parse_instructions(INPUT_FILE_NAME)
