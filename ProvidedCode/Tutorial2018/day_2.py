@@ -2,7 +2,7 @@
 # suggestions to make the code work! (Delete all TODOs when finished.)
 
 
-## TODO Change file path to appropriate input file. (Replace the X)
+## TODO Change file path to appropriate input file.
 INPUT_FILE_NAME = "Inputs/dayXInput.txt"
 
 
@@ -13,11 +13,9 @@ def parse_line(line):
     # we will cast the line to an integer, so that they can be added together.
 
     ## TODO: Uncomment, then complete the line below.
-    #integer = int(...)
-    integer = None # TODO: Delete this line.
+    integer = int(line)
     ## TODO: We will return (output) the processed line as an integer from this function. (Just uncomment)
-    #return integer
-    return None ## TODO: Delete this line.
+    return integer
 
 # This function can stay relatively unchanged for problems where every line contains a little more of the input.
 # it will return a list of whatever parse_line is formating the lines into.
@@ -83,3 +81,58 @@ def part_2():
 
 print("Part 1 answer: {}".format(part_1()))
 print("Part 2 answer: {}".format(part_2()))
+
+import collections
+
+file_name = "Inputs/day2Input.txt"
+
+file = open(file_name)
+
+input = file.read()
+
+lines = input.split('\n')
+
+
+
+### Part 1
+# def find_repeats(line, num):
+#     mapping = collections.defaultdict(int)
+#     for letter in line:
+#         mapping[letter] += 1
+#     return num in mapping.values()
+#
+# double_count = 0
+# triple_count = 0
+#
+# for line in lines:
+#     if find_repeats(line, 2):
+#         double_count += 1
+#     if find_repeats(line, 3):
+#         triple_count += 1
+#
+# check_sum = double_count * triple_count
+#
+# print(check_sum)
+
+
+### Part 2
+
+sorted_lines = sorted(lines)
+
+prev_line = ['.' for _ in range(26)]
+
+for line in sorted_lines:
+    differences = 0
+    similarities = ''
+    for idx in range(len(line)):
+        if line[idx] != prev_line[idx]:
+            differences += 1
+        else:
+            similarities += line[idx]
+        if differences > 1:
+            break
+    if differences == 1:
+        print similarities
+    prev_line = line
+
+
