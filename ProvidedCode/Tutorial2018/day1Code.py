@@ -13,7 +13,8 @@ def parse_line(line):
     # we will cast the line to an integer, so that they can be added together.
 
     ## TODO: Uncomment, then complete the line below.
-    integer = int(line)
+    #integer = int(...)
+    integer = None # TODO: Delete this line.
     ## TODO: We will return (output) the processed line as an integer from this function. (Just uncomment)
     return integer
 
