@@ -1,6 +1,7 @@
 # TODO Read through the day 1 problem of 2018, then you can go through this file and try to implement the given
 # suggestions to make the code work! (Delete all TODOs when finished.)
 
+## TODO: Copy your input into the appropriate input file.
 
 ## TODO Change file path to appropriate input file. (Replace the X)
 INPUT_FILE_NAME = "Inputs/dayXInput.txt"
