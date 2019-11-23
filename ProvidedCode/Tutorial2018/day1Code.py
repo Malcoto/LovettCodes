@@ -1,6 +1,7 @@
 # TODO Read through the day 1 problem of 2018, then you can go through this file and try to implement the given
 # suggestions to make the code work! (Delete all TODOs when finished.)
 
+## TODO: Copy your input into the appropriate input file.
 
 ## TODO Change file path to appropriate input file. (Replace the X)
 INPUT_FILE_NAME = "Inputs/dayXInput.txt"
@@ -40,7 +41,8 @@ def part_1():
 
     ## TODO: For each frequency in the list integers, change frequency.
     for frequencyChange in integers:
-        frequency += frequencyChange
+        # frequency += ...
+        pass
 
     ## TODO: Return the resultant frequency.
     # return ...
@@ -69,7 +71,8 @@ def part_2():
         ## already encountered. Once the list is progressed entired through, the while loop will take us
         ## back to the start.
         for frequencyChange in integers:
-            frequency += frequencyChange
+            ## TODO:
+            #frequency += ...
             ## TODO: Return frequency if it has already been visited. (Remove continue once return is implemented)
             if frequency in visitedFrequencies:
                 continue
