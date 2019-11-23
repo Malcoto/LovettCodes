@@ -1,10 +1,9 @@
 import collections
 
-# TODO Read through the day 1 problem of 2018, then you can go through this file and try to implement the given
+# TODO Read through the day 2 problem of 2018, then you can go through this file and try to implement the given
 # suggestions to make the code work! (Delete all TODOs when finished.)
 
-## TODO: Add to the input files.
-
+## TODO: Edit the input file to match your input.
 ## TODO Change file path to appropriate input file.
 INPUT_FILE_NAME = "Inputs/dayXInput.txt"
 
@@ -13,6 +12,7 @@ INPUT_FILE_NAME = "Inputs/dayXInput.txt"
 def parse_line(line):
     return line
 
+#TODO: Make sure you understand this function
 # This function can stay relatively unchanged for problems where every line contains a little more of the input.
 # it will return a list of whatever parse_line is formating the lines into.
 def parse_instructions(file_name):
