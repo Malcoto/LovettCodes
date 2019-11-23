@@ -1,21 +1,16 @@
+import collections
+
 # TODO Read through the day 1 problem of 2018, then you can go through this file and try to implement the given
 # suggestions to make the code work! (Delete all TODOs when finished.)
 
 
 ## TODO Change file path to appropriate input file.
-INPUT_FILE_NAME = "Inputs/dayXInput.txt"
+INPUT_FILE_NAME = "Inputs/day2Input.txt"
 
 
-## TODO" First we will write a function that can process the character inputs line
-# by line. We will cast these strings to an integer by calling int(line).
+# Having the string is already good enough, so this function is a no-op. (No operation)
 def parse_line(line):
-    # The variable line is of type string. This makes it difficult to add together, so
-    # we will cast the line to an integer, so that they can be added together.
-
-    ## TODO: Uncomment, then complete the line below.
-    integer = int(line)
-    ## TODO: We will return (output) the processed line as an integer from this function. (Just uncomment)
-    return integer
+    return line
 
 # This function can stay relatively unchanged for problems where every line contains a little more of the input.
 # it will return a list of whatever parse_line is formating the lines into.
@@ -26,26 +21,56 @@ def parse_instructions(file_name):
             cleaned_line.append(parse_line(line))
     return cleaned_line
 
+## TODO: Make a helper function! (Let's make a function that will tell us if an ID has the right number of repeated letters)
+def has_x_repeats(x, id):
+    # Lets make a dictionary to count the number of times a letter is repeated.
+    # A default dictionary has the property that if the inputted thing has no
+    repeats = collections.defaultdict(int)
+
+    ## TODO: For each letter in id, count it in repeats
+    for letter in id:
+        repeats[letter] += 1
+        continue
+
+    # The method values returns a list of the values in the dictionary it is called on. For repeats this results in
+    # a list of counts.
+    counts = repeats.values()
+
+    # If x is in counts, then that means there was a letter that appeared x times in id.
+    has_x = x in counts
+
+    ## TODO: Return the boolean value of whether id has a letter repeated x times.
+    return has_x
+
+
 ## TODO: Implement part 1 solution
 def part_1():
     ## TODO: We want to calculate the resulting frequency by moving it up and down by the values in the input.
 
     # Get a list of the integers representing the frequency changes from the input file.
-    integers = parse_instructions(INPUT_FILE_NAME)
+    boxIds = parse_instructions(INPUT_FILE_NAME)
 
-    # Initially start the frequency at 0.
-    frequency = 0
+    ## TODO: Initialize two counters for the number of ids with 2 or 3 repeated letters.
+    repeat_2 = 0
+    repeat_3 = 0
 
-    ## TODO: For each frequency in the list integers, change frequency.
-    for frequencyChange in integers:
-        frequency += frequencyChange
+    ## TODO: For each id in the list boxIds, increment the relevent counters.
+    for boxId in boxIds:
+        if has_x_repeats(2, boxId):
+            repeat_2 += 1
+        if has_x_repeats(3, boxId):
+            repeat_3 += 1
+
+    ## TODO: Calculate the checksum.
+    checksum = repeat_2 * repeat_3
+
 
     ## TODO: Return the resultant frequency.
-    # return ...
+    return checksum
 
 ## TODO: Implement part 2 solution
 def part_2():
-    ## TODO: We want to calculate the first frequency which is repeated.
+    ## TODO: We want to find the two ids which differ by only 1 letter. It is inefficient to check every pair, so
 
     # Get a list of the integers representing the frequency changes from the input file.
     integers = parse_instructions(INPUT_FILE_NAME)
@@ -81,58 +106,3 @@ def part_2():
 
 print("Part 1 answer: {}".format(part_1()))
 print("Part 2 answer: {}".format(part_2()))
-
-import collections
-
-file_name = "Inputs/day2Input.txt"
-
-file = open(file_name)
-
-input = file.read()
-
-lines = input.split('\n')
-
-
-
-### Part 1
-# def find_repeats(line, num):
-#     mapping = collections.defaultdict(int)
-#     for letter in line:
-#         mapping[letter] += 1
-#     return num in mapping.values()
-#
-# double_count = 0
-# triple_count = 0
-#
-# for line in lines:
-#     if find_repeats(line, 2):
-#         double_count += 1
-#     if find_repeats(line, 3):
-#         triple_count += 1
-#
-# check_sum = double_count * triple_count
-#
-# print(check_sum)
-
-
-### Part 2
-
-sorted_lines = sorted(lines)
-
-prev_line = ['.' for _ in range(26)]
-
-for line in sorted_lines:
-    differences = 0
-    similarities = ''
-    for idx in range(len(line)):
-        if line[idx] != prev_line[idx]:
-            differences += 1
-        else:
-            similarities += line[idx]
-        if differences > 1:
-            break
-    if differences == 1:
-        print similarities
-    prev_line = line
-
-
