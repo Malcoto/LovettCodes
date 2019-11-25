@@ -3,7 +3,7 @@
 
 
 ## TODO Change file path to appropriate input file. (Replace the X)
-INPUT_FILE_NAME = "Inputs/dayXInput.txt"
+INPUT_FILE_NAME = "Inputs/day1Input.txt"
 
 
 ## TODO" First we will write a function that can process the character inputs line
@@ -13,11 +13,10 @@ def parse_line(line):
     # we will cast the line to an integer, so that they can be added together.
 
     ## TODO: Uncomment, then complete the line below.
-    #integer = int(...)
-    integer = None # TODO: Delete this line.
+    integer = int(line)
+
     ## TODO: We will return (output) the processed line as an integer from this function. (Just uncomment)
-    #return integer
-    return None ## TODO: Delete this line.
+    return integer
 
 # This function can stay relatively unchanged for problems where every line contains a little more of the input.
 # it will return a list of whatever parse_line is formating the lines into.
@@ -39,11 +38,11 @@ def part_1():
     frequency = 0
 
     ## TODO: For each frequency in the list integers, change frequency.
-    for frequencyChange in integers:
+    for frequencyChange in integers: #[0, 1, -11, 2...]
         frequency += frequencyChange
 
     ## TODO: Return the resultant frequency.
-    # return ...
+    return frequency
 
 ## TODO: Implement part 2 solution
 def part_2():
@@ -57,27 +56,32 @@ def part_2():
 
     # Initialize an "empty set" called visitedFrequencies to keep track of which frequencies have been observed.
     visitedFrequencies = set([])
+    #list = [0,1,0,3,6,4,7]
+    #set = {0, 1, 5, 6}
+    #0 --> hash function --> index, return set.atindex(index)
+    #set.find(num)
 
     ## TODO: Add frequency to the set, since we already visited it.
-    # visitedFrequencies.add(...)
+    visitedFrequencies.add(frequency)
 
     ## TODO: Once code is working delete return None statement. (It's there to prevent an infinite loop for now.)
-    return None
 
     while True:
         ## TODO: For each frequency in the list integers, change frequency, and check if it has been
         ## already encountered. Once the list is progressed entired through, the while loop will take us
         ## back to the start.
         for frequencyChange in integers:
+
             frequency += frequencyChange
+            print("new freq:", frequency)
             ## TODO: Return frequency if it has already been visited. (Remove continue once return is implemented)
             if frequency in visitedFrequencies:
-                continue
-                #return ...
+                print("we have a repeated freq", frequency)
+                return frequency
             else:
                 ## TODO: Add frequency to visitedFrequencies. (Ditto with the continue)
-                continue
-                ## ...
+                visitedFrequencies.add(frequency)
+
 
 
 
